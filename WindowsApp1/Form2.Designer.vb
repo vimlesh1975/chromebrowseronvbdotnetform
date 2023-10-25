@@ -23,12 +23,12 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ChromiumWebBrowser1 = New CefSharp.WinForms.ChromiumWebBrowser()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.cmdPlay = New System.Windows.Forms.Button()
+        Me.cmdPause = New System.Windows.Forms.Button()
+        Me.cmdResume = New System.Windows.Forms.Button()
+        Me.cmdUpdate = New System.Windows.Forms.Button()
+        Me.cmdInvoke = New System.Windows.Forms.Button()
+        Me.cmdStop = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ChromiumWebBrowser1
@@ -39,71 +39,71 @@ Partial Class Form2
         Me.ChromiumWebBrowser1.Size = New System.Drawing.Size(610, 523)
         Me.ChromiumWebBrowser1.TabIndex = 0
         '
-        'Button1
+        'cmdPlay
         '
-        Me.Button1.Location = New System.Drawing.Point(691, 110)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Play"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.cmdPlay.Location = New System.Drawing.Point(691, 110)
+        Me.cmdPlay.Name = "cmdPlay"
+        Me.cmdPlay.Size = New System.Drawing.Size(75, 23)
+        Me.cmdPlay.TabIndex = 1
+        Me.cmdPlay.Text = "Play"
+        Me.cmdPlay.UseVisualStyleBackColor = True
         '
-        'Button2
+        'cmdPause
         '
-        Me.Button2.Location = New System.Drawing.Point(691, 139)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(209, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "go to 0 and play 0 to 4 in infinite loop"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.cmdPause.Location = New System.Drawing.Point(691, 168)
+        Me.cmdPause.Name = "cmdPause"
+        Me.cmdPause.Size = New System.Drawing.Size(75, 23)
+        Me.cmdPause.TabIndex = 3
+        Me.cmdPause.Text = "Pause"
+        Me.cmdPause.UseVisualStyleBackColor = True
         '
-        'Button3
+        'cmdResume
         '
-        Me.Button3.Location = New System.Drawing.Point(691, 168)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Pause"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.cmdResume.Location = New System.Drawing.Point(691, 197)
+        Me.cmdResume.Name = "cmdResume"
+        Me.cmdResume.Size = New System.Drawing.Size(75, 23)
+        Me.cmdResume.TabIndex = 4
+        Me.cmdResume.Text = "Resume"
+        Me.cmdResume.UseVisualStyleBackColor = True
         '
-        'Button4
+        'cmdUpdate
         '
-        Me.Button4.Location = New System.Drawing.Point(691, 197)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 4
-        Me.Button4.Text = "Resume"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.cmdUpdate.Location = New System.Drawing.Point(691, 226)
+        Me.cmdUpdate.Name = "cmdUpdate"
+        Me.cmdUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.cmdUpdate.TabIndex = 5
+        Me.cmdUpdate.Text = "Update"
+        Me.cmdUpdate.UseVisualStyleBackColor = True
         '
-        'Button5
+        'cmdInvoke
         '
-        Me.Button5.Location = New System.Drawing.Point(691, 226)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 5
-        Me.Button5.Text = "Update"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.cmdInvoke.Location = New System.Drawing.Point(691, 265)
+        Me.cmdInvoke.Name = "cmdInvoke"
+        Me.cmdInvoke.Size = New System.Drawing.Size(75, 23)
+        Me.cmdInvoke.TabIndex = 6
+        Me.cmdInvoke.Text = "Invoke"
+        Me.cmdInvoke.UseVisualStyleBackColor = True
         '
-        'Button6
+        'cmdStop
         '
-        Me.Button6.Location = New System.Drawing.Point(691, 265)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 6
-        Me.Button6.Text = "Invoke"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.cmdStop.Location = New System.Drawing.Point(680, 294)
+        Me.cmdStop.Name = "cmdStop"
+        Me.cmdStop.Size = New System.Drawing.Size(75, 23)
+        Me.cmdStop.TabIndex = 7
+        Me.cmdStop.Text = "Stop"
+        Me.cmdStop.UseVisualStyleBackColor = True
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1069, 717)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cmdStop)
+        Me.Controls.Add(Me.cmdInvoke)
+        Me.Controls.Add(Me.cmdUpdate)
+        Me.Controls.Add(Me.cmdResume)
+        Me.Controls.Add(Me.cmdPause)
+        Me.Controls.Add(Me.cmdPlay)
         Me.Controls.Add(Me.ChromiumWebBrowser1)
         Me.Name = "Form2"
         Me.Text = "Form2"
@@ -112,10 +112,10 @@ Partial Class Form2
     End Sub
 
     Friend WithEvents ChromiumWebBrowser1 As CefSharp.WinForms.ChromiumWebBrowser
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
+    Friend WithEvents cmdPlay As Button
+    Friend WithEvents cmdPause As Button
+    Friend WithEvents cmdResume As Button
+    Friend WithEvents cmdUpdate As Button
+    Friend WithEvents cmdInvoke As Button
+    Friend WithEvents cmdStop As Button
 End Class

@@ -1,4 +1,5 @@
-﻿Imports CefSharp
+﻿Imports System.Threading
+Imports CefSharp
 Imports CefSharp.WinForms
 Imports Svt.Caspar
 
@@ -25,37 +26,40 @@ Public Class Form2
         'Console.WriteLine(e)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub cmdPlay_Click(sender As Object, e As EventArgs) Handles cmdPlay.Click
         aa.SetData("ccgf0", "vimlesh Kumar")
         casparDevice.Channels(0).CG.Add(20, 20, "vimlesh", True, aa.ToAMCPEscapedXml)
+        Thread.Sleep(1000)
+        casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.play({ range: [0, 1] }).then(sheet.sequence.play({range:[1,2],iterationCount: Infinity, direction: 'alternateReverse'  }))" + """")
+
     End Sub
 
     Private Sub ChromiumWebBrowser1_LoadingStateChanged(sender As Object, e As LoadingStateChangedEventArgs) Handles ChromiumWebBrowser1.LoadingStateChanged
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.position = 0;sheet.sequence.play({ range: [0, 1], iterationCount: Infinity });" + """")
-
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub cmdPause_Click(sender As Object, e As EventArgs) Handles cmdPause.Click
         casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.pause()" + """")
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.play({ range: [0, 1], iterationCount: Infinity })" + """")
+    Private Sub cmdResume_Click(sender As Object, e As EventArgs) Handles cmdResume.Click
+        casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.play({ range: [0, 1] }).then(sheet.sequence.play({range:[1,2],iterationCount: Infinity,direction: 'alternateReverse'  }))" + """")
 
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdUpdate.Click
         aa.SetData("ccgf0", "vimlesh Kumar Tanti")
         casparDevice.Channels(0).CG.Update(20, 20, aa)
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub cmdInvoke_Click(sender As Object, e As EventArgs) Handles cmdInvoke.Click
         casparDevice.Channels(0).CG.Invoke(20, 20, "method1(2)")
 
+    End Sub
+
+    Private Sub cmdStop_Click(sender As Object, e As EventArgs) Handles cmdStop.Click
+        'casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.play().then(sheet.sequence.play({direction:'reverse'}))" + """")
+        casparDevice.SendString("call 1-20 " + """" + "sheet.sequence.play({direction:'reverse'})" + """")
     End Sub
 End Class
